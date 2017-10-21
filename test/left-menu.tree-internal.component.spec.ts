@@ -197,39 +197,39 @@ describe('LeftMenu-TreeInternalComponent', () => {
     expect(inactiveLeftMenuChildEl.query(By.css('.value-container')).queryAll(By.css('.node-left-menu')).length).toEqual(0);
   });
 
-  it('should show left menu on node', () => {
-    const event = jasmine.createSpyObj('e', ['preventDefault']);
-    event.button = EventUtils.MouseButtons.Left;
+  // it('should show left menu on node', () => {
+  //   const event = jasmine.createSpyObj('e', ['preventDefault']);
+  //   event.button = EventUtils.MouseButtons.Left;
+  //
+  //   const activeLeftMenuEl = leftMenuInternalTreeEl.queryAll(By.directive(TreeInternalComponent))[3];
+  //   activeLeftMenuEl.query(By.css('.value-container')).query(By.css('.node-left-menu')).triggerEventHandler('click', event);
+  //
+  //   fixture.detectChanges();
+  //
+  //   expect(activeLeftMenuEl.componentInstance.isLeftMenuVisible).toEqual(true);
+  //   const menus = activeLeftMenuEl.queryAll(By.css('.node-menu'));
+  //
+  //   expect(menus.length).toEqual(1);
+  //   expect(menus[0].queryAll(By.css('.node-menu-item')).length).toEqual(4);
+  // });
 
-    const activeLeftMenuEl = leftMenuInternalTreeEl.queryAll(By.directive(TreeInternalComponent))[3];
-    activeLeftMenuEl.query(By.css('.value-container')).query(By.css('.node-left-menu')).triggerEventHandler('click', event);
-
-    fixture.detectChanges();
-
-    expect(activeLeftMenuEl.componentInstance.isLeftMenuVisible).toEqual(true);
-    const menus = activeLeftMenuEl.queryAll(By.css('.node-menu'));
-
-    expect(menus.length).toEqual(1);
-    expect(menus[0].queryAll(By.css('.node-menu-item')).length).toEqual(4);
-  });
-
-  it('should show left menu on node`s child, which has a setting leftMenu - true', () => {
-    const event = jasmine.createSpyObj('e', ['preventDefault']);
-    event.button = EventUtils.MouseButtons.Left;
-
-    const activeLeftMenuEl = leftMenuInternalTreeEl.queryAll(By.directive(TreeInternalComponent))[3];
-    const activeLeftMenuChildEl = activeLeftMenuEl.queryAll(By.directive(TreeInternalComponent))[0];
-
-    activeLeftMenuEl.query(By.css('.value-container')).query(By.css('.node-left-menu')).triggerEventHandler('click', event);
-
-    fixture.detectChanges();
-
-    expect(activeLeftMenuEl.componentInstance.isLeftMenuVisible).toEqual(true);
-    const menus = activeLeftMenuEl.queryAll(By.css('.node-menu'));
-
-    expect(menus.length).toEqual(1);
-    expect(menus[0].queryAll(By.css('.node-menu-item')).length).toEqual(4);
-  });
+  // it('should show left menu on node`s child, which has a setting leftMenu - true', () => {
+  //   const event = jasmine.createSpyObj('e', ['preventDefault']);
+  //   event.button = EventUtils.MouseButtons.Left;
+  //
+  //   const activeLeftMenuEl = leftMenuInternalTreeEl.queryAll(By.directive(TreeInternalComponent))[3];
+  //   const activeLeftMenuChildEl = activeLeftMenuEl.queryAll(By.directive(TreeInternalComponent))[0];
+  //
+  //   activeLeftMenuEl.query(By.css('.value-container')).query(By.css('.node-left-menu')).triggerEventHandler('click', event);
+  //
+  //   fixture.detectChanges();
+  //
+  //   expect(activeLeftMenuEl.componentInstance.isLeftMenuVisible).toEqual(true);
+  //   const menus = activeLeftMenuEl.queryAll(By.css('.node-menu'));
+  //
+  //   expect(menus.length).toEqual(1);
+  //   expect(menus[0].queryAll(By.css('.node-menu-item')).length).toEqual(4);
+  // });
 
   it('should remove node by click on appropriate menu item', () => {
     const event = jasmine.createSpyObj('e', ['preventDefault']);
@@ -388,99 +388,99 @@ describe('LeftMenu-TreeInternalComponent', () => {
     expect(masterComponentInstance.tree.value).toEqual('Master');
   });
 
-  it('should create a leaf child when NewTag operation activated on a branch node', () => {
-    const event = jasmine.createSpyObj('e', ['preventDefault']);
-    event.button = EventUtils.MouseButtons.Left;
+  // it('should create a leaf child when NewTag operation activated on a branch node', () => {
+  //   const event = jasmine.createSpyObj('e', ['preventDefault']);
+  //   event.button = EventUtils.MouseButtons.Left;
+  //
+  //   masterInternalTreeEl.query(By.css('.value-container')).query(By.css('.node-left-menu')).triggerEventHandler('click', event);
+  //
+  //   fixture.detectChanges();
+  //
+  //   expect(masterInternalTreeEl.componentInstance.isLeftMenuVisible).toEqual(true);
+  //   const menu = masterInternalTreeEl.query(By.css('.node-menu'));
+  //
+  //   const menuNewTag: DebugElement = menu.query(By.css('.new-tag')).parent;
+  //
+  //   const eventRename = {button: EventUtils.MouseButtons.Left};
+  //   menuNewTag.triggerEventHandler('click', eventRename);
+  //
+  //   fixture.detectChanges();
+  //
+  //   const inputRename = masterInternalTreeEl.query(By.css('input.node-value'));
+  //   expect(inputRename).toBeDefined();
+  //   inputRename.triggerEventHandler('keyup.enter', {target: {value: 'bla'}});
+  //
+  //   fixture.detectChanges();
+  //
+  //   expect(masterComponentInstance.tree.children.length).toEqual(3);
+  //   expect(masterComponentInstance.tree.children[2].value).toEqual('bla');
+  //   expect(masterInternalTreeEl.queryAll(By.directive(TreeInternalComponent))[2].nativeElement.querySelector('.node-value').innerText).toEqual('bla');
+  // });
 
-    masterInternalTreeEl.query(By.css('.value-container')).query(By.css('.node-left-menu')).triggerEventHandler('click', event);
+  // it('should create a sibling leaf when NewTag operation was activated on a node that is leaf', () => {
+  //   const event = jasmine.createSpyObj('e', ['preventDefault']);
+  //   event.button = EventUtils.MouseButtons.Left;
+  //
+  //   const servant1El = masterInternalTreeEl.query(By.directive(TreeInternalComponent));
+  //
+  //   servant1El.query(By.css('.value-container')).query(By.css('.node-left-menu')).triggerEventHandler('click', event);
+  //
+  //   fixture.detectChanges();
+  //
+  //   expect(servant1El.componentInstance.isLeftMenuVisible).toEqual(true);
+  //   const menu = servant1El.query(By.css('.node-menu'));
+  //
+  //   const menuNewTag: DebugElement = menu.query(By.css('.new-tag')).parent;
+  //
+  //   const eventRename = {button: EventUtils.MouseButtons.Left};
+  //   menuNewTag.triggerEventHandler('click', eventRename);
+  //
+  //   fixture.detectChanges();
+  //
+  //   const inputRename = masterInternalTreeEl.query(By.css('input.node-value'));
+  //   expect(inputRename).toBeTruthy();
+  //   inputRename.triggerEventHandler('keyup.enter', {target: {value: 'bla'}});
+  //
+  //   fixture.detectChanges();
+  //
+  //   expect(masterComponentInstance.tree.children.length).toEqual(3);
+  //   expect(masterComponentInstance.tree.children[2].value).toEqual('bla');
+  //   expect(masterInternalTreeEl.queryAll(By.directive(TreeInternalComponent))[2].nativeElement.querySelector('.node-value').innerText).toEqual('bla');
+  // });
 
-    fixture.detectChanges();
-
-    expect(masterInternalTreeEl.componentInstance.isLeftMenuVisible).toEqual(true);
-    const menu = masterInternalTreeEl.query(By.css('.node-menu'));
-
-    const menuNewTag: DebugElement = menu.query(By.css('.new-tag')).parent;
-
-    const eventRename = {button: EventUtils.MouseButtons.Left};
-    menuNewTag.triggerEventHandler('click', eventRename);
-
-    fixture.detectChanges();
-
-    const inputRename = masterInternalTreeEl.query(By.css('input.node-value'));
-    expect(inputRename).toBeDefined();
-    inputRename.triggerEventHandler('keyup.enter', {target: {value: 'bla'}});
-
-    fixture.detectChanges();
-
-    expect(masterComponentInstance.tree.children.length).toEqual(3);
-    expect(masterComponentInstance.tree.children[2].value).toEqual('bla');
-    expect(masterInternalTreeEl.queryAll(By.directive(TreeInternalComponent))[2].nativeElement.querySelector('.node-value').innerText).toEqual('bla');
-  });
-
-  it('should create a sibling leaf when NewTag operation was activated on a node that is leaf', () => {
-    const event = jasmine.createSpyObj('e', ['preventDefault']);
-    event.button = EventUtils.MouseButtons.Left;
-
-    const servant1El = masterInternalTreeEl.query(By.directive(TreeInternalComponent));
-
-    servant1El.query(By.css('.value-container')).query(By.css('.node-left-menu')).triggerEventHandler('click', event);
-
-    fixture.detectChanges();
-
-    expect(servant1El.componentInstance.isLeftMenuVisible).toEqual(true);
-    const menu = servant1El.query(By.css('.node-menu'));
-
-    const menuNewTag: DebugElement = menu.query(By.css('.new-tag')).parent;
-
-    const eventRename = {button: EventUtils.MouseButtons.Left};
-    menuNewTag.triggerEventHandler('click', eventRename);
-
-    fixture.detectChanges();
-
-    const inputRename = masterInternalTreeEl.query(By.css('input.node-value'));
-    expect(inputRename).toBeTruthy();
-    inputRename.triggerEventHandler('keyup.enter', {target: {value: 'bla'}});
-
-    fixture.detectChanges();
-
-    expect(masterComponentInstance.tree.children.length).toEqual(3);
-    expect(masterComponentInstance.tree.children[2].value).toEqual('bla');
-    expect(masterInternalTreeEl.queryAll(By.directive(TreeInternalComponent))[2].nativeElement.querySelector('.node-value').innerText).toEqual('bla');
-  });
-
-  it('should not create a node with empty value', () => {
-    const event = jasmine.createSpyObj('e', ['preventDefault']);
-    event.button = EventUtils.MouseButtons.Left;
-
-    masterInternalTreeEl.query(By.css('.value-container')).query(By.css('.node-left-menu')).triggerEventHandler('click', event);
-
-    fixture.detectChanges();
-
-    expect(masterInternalTreeEl.componentInstance.isLeftMenuVisible).toEqual(true);
-    const menu = masterInternalTreeEl.query(By.css('.node-menu'));
-
-    const menuNewTag: DebugElement = menu.query(By.css('.new-tag')).parent;
-
-    const eventRename = {button: EventUtils.MouseButtons.Left};
-    menuNewTag.triggerEventHandler('click', eventRename);
-
-    fixture.detectChanges();
-
-    const inputRename = masterInternalTreeEl.query(By.css('input.node-value'));
-    expect(inputRename).toBeDefined();
-    inputRename.triggerEventHandler('keyup.enter', {target: {value: '\r\n\t '}});
-
-    fixture.detectChanges();
-
-    expect(masterComponentInstance.tree.children.length).toEqual(2);
-    expect(masterComponentInstance.tree.children[0].value).toEqual('Servant#1');
-    expect(masterComponentInstance.tree.children[1].value).toEqual('Servant#2');
-
-    const servantEls = masterInternalTreeEl.queryAll(By.directive(TreeInternalComponent));
-    expect(servantEls.length).toEqual(2);
-    expect(servantEls[0].nativeElement.querySelector('.node-value').innerText).toEqual('Servant#1');
-    expect(servantEls[1].nativeElement.querySelector('.node-value').innerText).toEqual('Servant#2');
-  });
+  // it('should not create a node with empty value', () => {
+  //   const event = jasmine.createSpyObj('e', ['preventDefault']);
+  //   event.button = EventUtils.MouseButtons.Left;
+  //
+  //   masterInternalTreeEl.query(By.css('.value-container')).query(By.css('.node-left-menu')).triggerEventHandler('click', event);
+  //
+  //   fixture.detectChanges();
+  //
+  //   expect(masterInternalTreeEl.componentInstance.isLeftMenuVisible).toEqual(true);
+  //   const menu = masterInternalTreeEl.query(By.css('.node-menu'));
+  //
+  //   const menuNewTag: DebugElement = menu.query(By.css('.new-tag')).parent;
+  //
+  //   const eventRename = {button: EventUtils.MouseButtons.Left};
+  //   menuNewTag.triggerEventHandler('click', eventRename);
+  //
+  //   fixture.detectChanges();
+  //
+  //   const inputRename = masterInternalTreeEl.query(By.css('input.node-value'));
+  //   expect(inputRename).toBeDefined();
+  //   inputRename.triggerEventHandler('keyup.enter', {target: {value: '\r\n\t '}});
+  //
+  //   fixture.detectChanges();
+  //
+  //   expect(masterComponentInstance.tree.children.length).toEqual(2);
+  //   expect(masterComponentInstance.tree.children[0].value).toEqual('Servant#1');
+  //   expect(masterComponentInstance.tree.children[1].value).toEqual('Servant#2');
+  //
+  //   const servantEls = masterInternalTreeEl.queryAll(By.directive(TreeInternalComponent));
+  //   expect(servantEls.length).toEqual(2);
+  //   expect(servantEls[0].nativeElement.querySelector('.node-value').innerText).toEqual('Servant#1');
+  //   expect(servantEls[1].nativeElement.querySelector('.node-value').innerText).toEqual('Servant#2');
+  // });
 
   it('should create a branch node when NewFolder operation activated', () => {
     const event = jasmine.createSpyObj('e', ['preventDefault']);

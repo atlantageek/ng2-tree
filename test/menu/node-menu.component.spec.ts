@@ -32,26 +32,26 @@ describe('NodeMenuComponent', () => {
   });
 
   it('should have basic menu items', () => {
-    expect(fixture.componentInstance.availableMenuItems.length).toEqual(4);
-    expect(fixture.componentInstance.availableMenuItems[0]).toEqual({
-      name: 'New tag',
-      action: NodeMenuItemAction.NewTag,
-      cssClass: 'new-tag'
-    });
+    expect(fixture.componentInstance.availableMenuItems.length).toEqual(3);
+    // expect(fixture.componentInstance.availableMenuItems[0]).toEqual({
+    //   name: 'New tag',
+    //   action: NodeMenuItemAction.NewTag,
+    //   cssClass: 'new-tag'
+    // });
 
-    expect(fixture.componentInstance.availableMenuItems[1]).toEqual({
-      name: 'New folder',
+    expect(fixture.componentInstance.availableMenuItems[0]).toEqual({
+      name: 'New Org',
       action: NodeMenuItemAction.NewFolder,
       cssClass: 'new-folder'
     });
 
-    expect(fixture.componentInstance.availableMenuItems[2]).toEqual({
+    expect(fixture.componentInstance.availableMenuItems[1]).toEqual({
       name: 'Rename',
       action: NodeMenuItemAction.Rename,
       cssClass: 'rename'
     });
 
-    expect(fixture.componentInstance.availableMenuItems[3]).toEqual({
+    expect(fixture.componentInstance.availableMenuItems[2]).toEqual({
       name: 'Remove',
       action: NodeMenuItemAction.Remove,
       cssClass: 'remove'
@@ -63,19 +63,17 @@ describe('NodeMenuComponent', () => {
 
     const menuItems = fixture.debugElement.queryAll(By.css('.node-menu-item'));
     expect(menuItems).not.toBeNull();
-    expect(menuItems.length).toEqual(4);
+    expect(menuItems.length).toEqual(3);
 
-    expect(menuItems[0].query(By.css('.node-menu-item-icon')).nativeElement.classList).toContain('new-tag');
-    expect(menuItems[0].query(By.css('.node-menu-item-value')).nativeElement.innerText).toEqual('New tag');
 
-    expect(menuItems[1].query(By.css('.node-menu-item-icon')).nativeElement.classList).toContain('new-folder');
-    expect(menuItems[1].query(By.css('.node-menu-item-value')).nativeElement.innerText).toEqual('New folder');
+    expect(menuItems[0].query(By.css('.node-menu-item-icon')).nativeElement.classList).toContain('new-folder');
+    expect(menuItems[0].query(By.css('.node-menu-item-value')).nativeElement.innerText).toEqual('New Org');
 
-    expect(menuItems[2].query(By.css('.node-menu-item-icon')).nativeElement.classList).toContain('rename');
-    expect(menuItems[2].query(By.css('.node-menu-item-value')).nativeElement.innerText).toEqual('Rename');
+    expect(menuItems[1].query(By.css('.node-menu-item-icon')).nativeElement.classList).toContain('rename');
+    expect(menuItems[1].query(By.css('.node-menu-item-value')).nativeElement.innerText).toEqual('Rename');
 
-    expect(menuItems[3].query(By.css('.node-menu-item-icon')).nativeElement.classList).toContain('remove');
-    expect(menuItems[3].query(By.css('.node-menu-item-value')).nativeElement.innerText).toEqual('Remove');
+    expect(menuItems[2].query(By.css('.node-menu-item-icon')).nativeElement.classList).toContain('remove');
+    expect(menuItems[2].query(By.css('.node-menu-item-value')).nativeElement.innerText).toEqual('Remove');
   });
 
   it('should not emit an action on right mouse button click', () => {
@@ -94,20 +92,20 @@ describe('NodeMenuComponent', () => {
     expect(componentInstance.menuItemSelected.emit).not.toHaveBeenCalled();
   });
 
-  it('should emit an action on left mouse button click', () => {
-    fixture.detectChanges();
-
-    const event = {
-      button: MouseButtons.Left
-    };
-
-    const menuItem = fixture.debugElement.query(By.css('.node-menu-item'));
-    spyOn(componentInstance.menuItemSelected, 'emit');
-
-    menuItem.triggerEventHandler('click', event);
-
-    expect(componentInstance.menuItemSelected.emit).toHaveBeenCalledWith({nodeMenuItemAction: NodeMenuItemAction.NewTag});
-  });
+  // it('should emit an action on left mouse button click', () => {
+  //   fixture.detectChanges();
+  //
+  //   const event = {
+  //     button: MouseButtons.Left
+  //   };
+  //
+  //   const menuItem = fixture.debugElement.query(By.css('.node-menu-item'));
+  //   spyOn(componentInstance.menuItemSelected, 'emit');
+  //
+  //   menuItem.triggerEventHandler('click', event);
+  //
+  //   expect(componentInstance.menuItemSelected.emit).toHaveBeenCalledWith({nodeMenuItemAction: NodeMenuItemAction.NewTag});
+  // });
 
   it('should close menu on any click outside of it', () => {
     fixture.detectChanges();

@@ -24,13 +24,13 @@ export class NodeMenuComponent implements OnInit, OnDestroy {
   @ViewChild('menuContainer') public menuContainer: any;
 
   public availableMenuItems: NodeMenuItem[] = [
-    {
+  /*{
       name: 'New tag',
       action: NodeMenuItemAction.NewTag,
       cssClass: 'new-tag'
-    },
+      },*/
     {
-      name: 'New folder',
+      name: 'New Org',
       action: NodeMenuItemAction.NewFolder,
       cssClass: 'new-folder'
     },
